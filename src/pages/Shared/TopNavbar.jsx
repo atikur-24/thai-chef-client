@@ -7,7 +7,7 @@ const TopNavbar = () => {
     <div className="bg-light">
       <Container>
       <Navbar expand="lg" className="py-4">
-        <Navbar.Brand className="fs-4">Thai Kitchen Chronicles</Navbar.Brand>
+        <Navbar.Brand className="fs-4 fw-bold">Thai Kitchen <span className="my-color">Chronicles</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
