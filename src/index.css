@@ -16,8 +16,9 @@
   cursor: pointer;
   border-radius: 4px;
 }
-.my-btn:hover {
+.my-button:hover {
   background-color: #E18521;
+  color: #fff;
 }
 
 .my-color {
