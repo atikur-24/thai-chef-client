@@ -7,6 +7,14 @@
 .my-button {
   color: #fff;
   background-color: #F89223;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 .my-btn:hover {
   background-color: #E18521;
@@ -14,4 +22,16 @@
 
 .my-color {
   color: #F7A026 !important;
+}
+
+.my-color-two {
+  color: #f5a959 !important;
+}
+
+.my-color-gray {
+  color: #edf0f5;
+}
+
+.green-placeholder::placeholder {
+  color: green;
 }
