@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { FaRegClock } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Recipes = ({ recipes }) => {
     const { recipe_image, recipe_name, cooking_method, ingredients, cook_time, difficulty_level, description, rating } = recipes;
+
+    const [able, setAble] = useState(false);
+
+    const handleDisable = () => {
+      setAble(!able)
+      toast("The Recipe is Your Favorite")
+    }
 
     return (
         <Col>
@@ -28,7 +37,8 @@ const Recipes = ({ recipes }) => {
             </Card.Body>
             <Card.Footer className='d-flex justify-content-between align-items-center'>
                 <span>
-                  <button className='btn btn-warning my-text'  >Favorite </button>
+                  <button onClick={handleDisable} className='btn btn-warning my-text' disabled={able} >Favorite </button>
+                  <ToastContainer />
                 </span>
                 <span>
                 <FaRegClock className='my-color fw-semibold'  style={{fontSize: "20px"}}/>
