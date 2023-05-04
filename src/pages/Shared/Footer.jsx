@@ -4,9 +4,9 @@ import { FaEnvelope, FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaTwit
 
 const Footer = () => {
     return (
-        <footer className='py-5 bg-secondary bg-gradient'>
+        <footer className='pt-5 pb-3 py-md-5 bg-secondary bg-gradient'>
             <div className='container'>
-                <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 my-color-gray'>
+                <div className='mt-0 mt-md-4 row row-cols-1 row-cols-md-2 row-cols-lg-3 my-color-gray text-center text-md-start gap-4 gap-lg-0'>
                     <div className='col'>
                         <h4 className='my-color fw-semibold mb-4'>Contact</h4>
                         <p><span className='me-2'> <FaMapMarkerAlt className='my-color-two' /> </span> Bangkok, Thailand</p>

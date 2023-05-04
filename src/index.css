@@ -29,8 +29,16 @@
   color: #f5a959 !important;
 }
 
+.my-color-three {
+  color: #F89223 !important;
+}
+
 .my-color-gray {
   color: #edf0f5;
+}
+
+.my-text {
+  color: #7D7F82;
 }
 
 .green-placeholder::placeholder {

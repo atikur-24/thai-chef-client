@@ -12,7 +12,7 @@ const ErrorPage = () => {
             <Lottie className='w-50' animationData={errorImg} loop={true} />
             <div>
                 <h2 className='fs-1 fw-bolder'>Page Not Found</h2>
-                <h5 className='my-5'>{error?.message}</h5>
+                <h5 className='my-5 fw-semibold'>{error?.message}</h5>
                 <Link to='/' className='my-button fw-bold'> <span className='me-2'> <HiArrowNarrowLeft /> </span> Back to Home page</Link>
             </div>
         </Container>
