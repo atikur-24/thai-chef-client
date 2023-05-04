@@ -45,6 +45,9 @@
   color: #7D7F82;
 }
 
+.my-title {
+  color: #2e2f31;
+}
 .green-placeholder::placeholder {
   color: green;
 }

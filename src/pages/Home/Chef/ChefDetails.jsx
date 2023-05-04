@@ -13,7 +13,7 @@ const ChefDetails = () => {
         <Container className='my-5'>
             <Card>
                 <Card.Header className='py-3 text-center'>
-                    <Card.Title className='fw-bold fs-4'>{chef_name}</Card.Title>
+                    <Card.Title className='fw-bold fs-4 my-title'>{chef_name}</Card.Title>
                 </Card.Header>
                 <Row xs={1} md={2}>
                     <Col>
@@ -38,7 +38,15 @@ const ChefDetails = () => {
                     </Col>
                 </Row>
             </Card>
-            <Recipes recipes={recipes} />
+            <section className='my-5 py-5'>
+                <h4 className='fw-bold fs-3 text-center'> Spicy Recipes</h4>
+                <p className='my-color text-center my-color-three'><small>{chef_name} makes testy and heathy recipes. see some latest recipes</small></p>
+                <Row xs={1} md={2} lg={3} className='g-4 pt-4'>
+                {
+                    recipes.map( (recipe, idx) => <Recipes key={idx} recipes={recipe} /> )
+                }
+            </Row>
+            </section>
         </Container>
     );
 };
