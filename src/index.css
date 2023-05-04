@@ -4,6 +4,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.font-500 {
+  font-weight: 500;
+}
+
 .my-button {
   color: #fff;
   background-color: #F89223;
