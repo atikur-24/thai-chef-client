@@ -12,12 +12,12 @@ const RecipeCategories = () => {
             <h2 className='fw-semibold md:fw-bold text-center'>Popular Recipe Categories</h2>
             <p className='my-color-three text-center pb-4'>Breakfast recipes · Lunch recipes · Dinner recipes · Appetizer recipes · Salad recipes · Main-course recipes · Side-dish recipes · Baked-goods</p>
         
-            <Row xs={2} md={2} lg={4}>
+            <Row xs={2} md={3} lg={4}>
 
                 <Col>
                 <div className='position-relative shadow  bg-body-tertiary rounded my-style my-style'>
                 <img style={{height: '220px'}} className='rounded img-fluid' src={friedRice} alt="" />
-                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-bold bg-secondary bg-opacity-50 py-1 px-3'> <HiViewGrid />  12+</h4>
+                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-semibold bg-secondary bg-opacity-25 py-1 px-3'> <HiViewGrid />  12+</h4>
                 </div>
                 <h4 className='text-center mt-3 fw-semibold text-secondary'>Rice</h4>
                 </Col>
@@ -25,7 +25,7 @@ const RecipeCategories = () => {
                 <Col>
                 <div className='position-relative shadow  bg-body-tertiary rounded my-style'>
                 <img style={{height: '220px'}} className='rounded img-fluid' src={burger} alt="" />
-                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-bold bg-secondary bg-opacity-50 py-1 px-3'> <HiViewGrid />  18+</h4>
+                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-semibold bg-secondary bg-opacity-25 py-1 px-3'> <HiViewGrid />  18+</h4>
                 </div>
                 <h4 className='text-center mt-3 fw-semibold text-secondary'>Burger</h4>
                 </Col>
@@ -33,7 +33,7 @@ const RecipeCategories = () => {
                 <Col>
                 <div className='position-relative shadow  bg-body-tertiary rounded my-style'>
                 <img style={{height: '220px', }} className='rounded' src={chicken} alt="" />
-                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-bold bg-secondary bg-opacity-50 py-1 px-3'> <HiViewGrid />  15+</h4>
+                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-semibold bg-secondary bg-opacity-25 py-1 px-3'> <HiViewGrid />  15+</h4>
                 </div>
                 <h4 className='text-center mt-3 fw-semibold text-secondary'>Chicken</h4>
                 </Col>
@@ -41,7 +41,7 @@ const RecipeCategories = () => {
                 <Col>
                 <div className='position-relative shadow  bg-body-tertiary rounded my-style'>
                 <img style={{height: '220px'}} className='rounded img-fluid' src={soup} alt="" />
-                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-bold bg-secondary bg-opacity-50 py-1 px-3'> <HiViewGrid />  8+</h4>
+                <h4 className='position-absolute top-50 start-50 translate-middle text-light fw-semibold bg-secondary bg-opacity-25 py-1 px-3'> <HiViewGrid />  8+</h4>
                 </div>
                 <h4 className='text-center mt-3 fw-semibold text-secondary'>Soup</h4>
                 </Col>
