@@ -26,8 +26,7 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <PrivateRoute> <ChefDetails /> </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
-                // loader: ({params}) => fetch(`https://thai-kitchen-chronicles-server-atikur-24.vercel.app/chefs/${params.id}`)
+                loader: ({params}) => fetch(`https://thai-kitchen-chronicles-server-atikur-24.vercel.app/chefs/${params.id}`)
             },
             {
                 path: 'login',

@@ -40,15 +40,13 @@ const Register = () => {
                 const loggedUser = result.user;
                 form.reset();
                 setSuccess('You has been Account created Successfully !')
-                console.log(loggedUser);
             })
             .catch(error => {
                 const errorMessage = error.message;
                 setError(errorMessage)
-                console.log(errorMessage);
             })
 
-            console.log(name, photoUrl ,email, password, confirm);
+            // console.log(name, photoUrl ,email, password, confirm);
     }
 
 
@@ -88,7 +86,7 @@ const Register = () => {
           </p>
         </Form.Group>
 
-        <p>
+        <p className="py-2">
             {success && <small className="text-success">{success}</small>}
             {error && <small className="text-danger">{error}</small>}
         </p>

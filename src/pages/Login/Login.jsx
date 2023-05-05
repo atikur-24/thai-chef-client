@@ -20,21 +20,18 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     setError('')
 
     userLogin(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
         form.reset();
         navigate(from, {replace: true})
       })
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage)
-        console.log(errorMessage);
       });
   };
 
@@ -44,12 +41,10 @@ const Login = () => {
     googleSingIn()
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
             navigate(from, {replace: true})
         })
         .catch(error => {
             const errorMessage = error.message;
-            console.log(errorMessage);
         })
     }
 
@@ -58,13 +53,11 @@ const Login = () => {
         githubSingIn()
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
             navigate(from, {replace: true})
         })
         .catch(error => {
             const errorMessage = error.message;
             setError(errorMessage)
-            console.log(errorMessage);
         })
     }
 
@@ -78,14 +71,14 @@ const Login = () => {
           <Form.Control type="email" name="email" placeholder="Enter email" required />
         </Form.Group>
 
-        <p>forget password</p>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label className="font-500 my-title">Password</Form.Label>
           <Form.Control className="mb-2" type="password" name="password" placeholder="Password" required />
+          <p className="text-primary"><small style={{textDecoration:'underline'}}>forgot password</small></p>
         </Form.Group>
 
 
-        <p>
+        <p className="py-2">
             {error && <small className="text-danger">{error}</small>}
         </p>
 
