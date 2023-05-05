@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
@@ -6,9 +6,11 @@ import googleLogo from '../../assets/icons/google.png'
 import githubLogo from '../../assets/icons/github.png'
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { googleSingIn, githubSingIn, userLogin } = useContext(AuthContext);
 
-  const handleSignIn = (event) => {
+  const [error, setError] = useState('');
+
+  const handleLogin = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -16,18 +18,22 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    signIn(email, password)
+    setError('')
+
+    userLogin(email, password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
       })
       .catch((error) => {
         const errorMessage = error.message;
+        setError(errorMessage)
         console.log(errorMessage);
       });
   };
 
-      // google login
+
+    // google login
     const handleGoogleLogin = () => {
     googleSingIn()
         .then(result => {
@@ -42,13 +48,22 @@ const Login = () => {
 
     // github login
     const handleGithubLogin = () =>{
-        console.log('github');
+        githubSingIn()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            setError(errorMessage)
+            console.log(errorMessage);
+        })
     }
 
   return (
     <Container className="my-5 pb-3">
         <h3 className="text-center fw-bold my-title">Login Your Account</h3>
-      <Form className="w-50 mx-auto">
+      <Form onSubmit={ handleLogin } className="w-50 mx-auto">
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="font-500 my-title">Email address</Form.Label>
@@ -61,13 +76,12 @@ const Login = () => {
         </Form.Group>
 
 
-        {/* <p>
-            {success && <small className="text-success">{success}</small>}
+        <p>
             {error && <small className="text-danger">{error}</small>}
-        </p> */}
+        </p>
 
         <button className="my-button py-3 fw-bold w-100" type="submit">
-          Login Up
+          Login In
         </button>
       </Form>
 
