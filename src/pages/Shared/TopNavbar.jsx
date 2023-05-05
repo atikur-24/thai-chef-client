@@ -29,7 +29,7 @@ const TopNavbar = () => {
             </span>
           </Nav>
           <Nav>
-          {user && <img title={user?.displayName} style={{height: '40px'}} className="rounded-circle" src={user?.photoURL} alt="profile" />}
+          {user && <img title={user?.displayName} style={{height: '40px', width: '40px'}} className="rounded-circle" src={user?.photoURL} alt="profile" />}
 
             { user ? <Link onClick={ handleLogout } className="my-button py-2 fw-semibold ms-3">Logout</Link>
             : <Link to='/login' className="my-button py-2 fw-semibold ms-3">Login</Link> }
