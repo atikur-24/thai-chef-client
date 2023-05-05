@@ -35,6 +35,9 @@ const Blog = () => {
                 </div>
             </div>
            
+           <div className='text-center'>
+           <button className='my-button'>View Pdf</button>
+           </div>
         </Container>
     );
 };
