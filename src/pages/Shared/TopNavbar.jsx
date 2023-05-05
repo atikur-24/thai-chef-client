@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import profile from '../../assets/banner/profile.jpg'
 
 const TopNavbar = () => {
@@ -23,7 +23,9 @@ const TopNavbar = () => {
           </Nav>
           <Nav>
           <img title="heelo" style={{height: '40px'}} className="rounded-circle" src={profile} alt="" />
-          <button  className="my-button py-2 fw-semibold ms-3">Login</button>
+          <Link to='/login'>
+            <button  className="my-button py-2 fw-semibold ms-3">Login</button>
+          </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

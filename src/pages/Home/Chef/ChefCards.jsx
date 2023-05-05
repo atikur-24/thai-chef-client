@@ -5,6 +5,7 @@ import { AiFillLike } from "react-icons/ai";
 
 const ChefCards = ({chef}) => {
     const {id, chef_name, chef_image, years_of_experience, number_of_recipes, likes } = chef;
+
     return (
         <Col>
             <Card className='h-100'>
