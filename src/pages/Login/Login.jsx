@@ -90,7 +90,7 @@ const Login = () => {
         </p>
 
         <button className="my-button py-3 fw-bold w-100" type="submit">
-          Login In
+          Login
         </button>
       </Form>
 

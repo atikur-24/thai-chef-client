@@ -65,3 +65,9 @@
 .default:hover {
   color: #7D7F82;
 }
+
+.my-style:hover {
+  opacity: 0.8;
+  transition-duration: 1s;
+  cursor: pointer;
+}

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import profile from '../../assets/banner/profile.jpg'
 import { AuthContext } from "../../providers/AuthProvider";
 
 const TopNavbar = () => {
