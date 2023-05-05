@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import profile from '../../assets/banner/profile.jpg'
+import { AuthContext } from "../../providers/AuthProvider";
 
 const TopNavbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log("this is ueser ----->", user);
+
+  const handleLogout = () => {
+    logOut().then(() =>{}).catch(error => {console.error(error)})
+  }
+
   return (
     <div className="bg-light">
       <Container>
@@ -22,10 +30,10 @@ const TopNavbar = () => {
             </span>
           </Nav>
           <Nav>
-          <img title="heelo" style={{height: '40px'}} className="rounded-circle" src={profile} alt="" />
-          <Link to='/login'>
-            <button  className="my-button py-2 fw-semibold ms-3">Login</button>
-          </Link>
+          {user && <img title={user?.displayName} style={{height: '40px'}} className="rounded-circle" src={user?.photoURL} alt="profile" />}
+
+            { user ? <Link onClick={ handleLogout } className="my-button py-2 fw-semibold ms-3">Logout</Link>
+            : <Link to='/login' className="my-button py-2 fw-semibold ms-3">Login</Link> }
           </Nav>
         </Navbar.Collapse>
       </Navbar>

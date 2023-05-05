@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleLogo from '../../assets/icons/google.png'
 import githubLogo from '../../assets/icons/github.png'
 
@@ -9,6 +9,10 @@ const Login = () => {
   const { googleSingIn, githubSingIn, userLogin } = useContext(AuthContext);
 
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/'
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -24,6 +28,8 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        form.reset();
+        navigate(from, {replace: true})
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -39,6 +45,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(from, {replace: true})
         })
         .catch(error => {
             const errorMessage = error.message;
@@ -52,6 +59,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate(from, {replace: true})
         })
         .catch(error => {
             const errorMessage = error.message;
@@ -70,6 +78,7 @@ const Login = () => {
           <Form.Control type="email" name="email" placeholder="Enter email" required />
         </Form.Group>
 
+        <p>forget password</p>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label className="font-500 my-title">Password</Form.Label>
           <Form.Control className="mb-2" type="password" name="password" placeholder="Password" required />
