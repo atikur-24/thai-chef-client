@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
@@ -8,6 +8,7 @@ import Recipes from './Recipes';
 const ChefDetails = () => {
     const ChefDetails = useLoaderData();
     const { chef_name, chef_image, years_of_experience, number_of_recipes, likes, chef_bio, email, address, recipes } = ChefDetails;
+    const [ShowAllRecipes, setShowAllRecipes] = useState(false)
 
     return (
         <Container className='my-5'>
@@ -25,11 +26,11 @@ const ChefDetails = () => {
                         <span className='lh-lg'>{chef_bio}</span>
                         </Card.Text>
                         <Card.Text className='font-500 my-text mt-5 lh-lg'>
-                        <span className='text-secondary fw-semibold' style={{fontSize: "18px"}}>Experience : </span> {years_of_experience}
+                        <span className='text-secondary fw-semibold me-2' style={{fontSize: "18px"}}>Experience : </span> {years_of_experience} Years
                             <br />
-                        <span className='text-secondary fw-semibold' style={{fontSize: "18px"}}>Recipes : </span> {number_of_recipes}+
+                        <span className='text-secondary fw-semibold me-2' style={{fontSize: "18px"}}>Recipes : </span> {number_of_recipes}+ 
                         <br />
-                        <span className='text-secondary fw-semibold' style={{fontSize: "18px"}}>Likes : </span> {likes}
+                        <span className='text-secondary fw-semibold me-2' style={{fontSize: "18px"}}>Likes : </span> {likes}
                         </Card.Text>
                         <Card.Text className='mt-5 pt-3 my-text d-flex justify-content-between'>
                         <span><FaMapMarkerAlt className='text-secondary fw-semibold' style={{fontSize: "18px"}} /> {address} </span> 
@@ -42,10 +43,15 @@ const ChefDetails = () => {
                 <h4 className='fw-bold fs-3 text-center'> Spicy Recipes</h4>
                 <p className='my-color text-center my-color-three'><small>{chef_name} makes testy and heathy recipes. see some latest recipes</small></p>
                 <Row xs={1} md={2} lg={3} className='g-4 pt-4'>
-                {
-                    recipes.map( (recipe, idx) => <Recipes key={idx} recipes={recipe} /> )
-                }
-            </Row>
+                    {
+                        recipes.slice(0, ShowAllRecipes ? 6 : 3)?.map( (recipe, idx) => <Recipes key={idx} recipes={recipe} /> )
+                    }
+                </Row>
+                <div className='text-center pt-4'>
+                    {
+                        !ShowAllRecipes && <button onClick={ () => setShowAllRecipes(!ShowAllRecipes) } className='my-button p-2'>See All Recipes</button>
+                    }
+                </div>
             </section>
         </Container>
     );

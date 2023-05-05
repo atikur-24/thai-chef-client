@@ -48,6 +48,20 @@
 .my-title {
   color: #2e2f31;
 }
-.green-placeholder::placeholder {
-  color: green;
+
+.active {
+  color: #2e2f31;
+  font-weight: 600;
+}
+
+.default {
+  color: #7D7F82;
+  font-weight: 600;
+}
+.active:hover {
+  color: #2e2f31;
+}
+
+.default:hover {
+  color: #7D7F82;
 }
