@@ -1,14 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleLogo from '../../assets/icons/google.png'
 import githubLogo from '../../assets/icons/github.png'
+import { sendPasswordResetEmail, getAuth } from "firebase/auth";
+import app from "../../firebase/firebase.config";
+
+const auth = getAuth(app)
 
 const Login = () => {
   const { googleSingIn, githubSingIn, userLogin } = useContext(AuthContext);
 
   const [error, setError] = useState('');
+  const emailRef = useRef()
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,6 +31,7 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        console.log(loggedUser);
         form.reset();
         navigate(from, {replace: true})
       })
@@ -45,6 +51,7 @@ const Login = () => {
         })
         .catch(error => {
             const errorMessage = error.message;
+            console.error(errorMessage);
         })
     }
 
@@ -61,6 +68,21 @@ const Login = () => {
         })
     }
 
+    // forgot password
+    const handleForgotPassword = () => {
+      const email = emailRef.current.value;
+      if (!email) {
+        return alert('please provide valid email address')
+      }
+      sendPasswordResetEmail(auth, email)
+          .then( () => {
+            alert('check email address')
+          })
+          .catch(error => {
+            setError(error.message);
+          })
+    }
+
   return (
     <Container className="my-5 pb-3">
         <h3 className="text-center fw-bold my-title">Login Your Account</h3>
@@ -68,13 +90,13 @@ const Login = () => {
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="font-500 my-title">Email address</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" required />
+          <Form.Control ref={emailRef} type="email" name="email" placeholder="Enter email" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label className="font-500 my-title">Password</Form.Label>
           <Form.Control className="mb-2" type="password" name="password" placeholder="Password" required />
-          <p className="text-primary"><small style={{textDecoration:'underline'}}>forgot password</small></p>
+          <p onClick={ handleForgotPassword } className="text-primary d-inline"><small style={{textDecoration:'underline', cursor: 'pointer'}}>forgot password</small></p>
         </Form.Group>
 
 

@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
@@ -38,6 +38,8 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(name, photoUrl, loggedUser)
                 form.reset();
                 setSuccess('You has been Account created Successfully !')
             })
@@ -45,7 +47,6 @@ const Register = () => {
                 const errorMessage = error.message;
                 setError(errorMessage)
             })
-
             // console.log(name, photoUrl ,email, password, confirm);
     }
 

@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Recipes = ({ recipes }) => {
-    const { recipe_image, recipe_name, cooking_method, ingredients, cook_time, difficulty_level, description, rating } = recipes;
+    const { recipe_image, recipe_name, cooking_method, cook_time, difficulty_level, description, rating } = recipes;
 
     const [able, setAble] = useState(false);
 
